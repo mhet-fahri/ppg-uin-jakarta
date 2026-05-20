@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+@layer base {
+  body {
+    font-family: "Source Sans 3", ui-sans-serif, system-ui, sans-serif;
+    color: #1e293b; /* text-slate-800 */
+    background: linear-gradient(180deg, #f4f6f9 0%, #fafbfc 100%);
+    background-attachment: fixed;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: "Source Sans 3", ui-sans-serif, system-ui, sans-serif;
+    font-weight: 700;
+    color: #0f172a; /* Deep Slate-900 for perfect contrast & readability */
+    letter-spacing: -0.01em;
+  }
+}
+
+/* Custom modern decorations */
+.bg-grid-pattern {
+  background-image: 
+    radial-gradient(rgba(37, 99, 235, 0.03) 1.5px, transparent 1.5px),
+    radial-gradient(rgba(13, 148, 136, 0.02) 1.5px, transparent 1.5px);
+  background-size: 32px 32px;
+  background-position: 0 0, 16px 16px;
+}
+
+/* Elegant micro-interactions and ambient styles */
+.glass-card {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(241, 245, 249, 0.6);
+}
+
+@keyframes float-slow {
+  0%, 100% {
+    transform: translateY(0px) scale(1);
+  }
+  50% {
+    transform: translateY(-15px) scale(1.05);
+  }
+}
+
+.animate-float-slow {
+  animation: float-slow 10s ease-in-out infinite;
+}
+
+.animate-float-slower {
+  animation: float-slow 15s ease-in-out infinite;
+}

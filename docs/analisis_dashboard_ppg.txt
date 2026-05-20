@@ -1,0 +1,47 @@
+# ANALISIS KEBUTUHAN DASHBOARD & PERAN PENGGUNA - PPG UIN JAKARTA
+
+## 1. DAFTAR PERAN (ROLES)
+- ADMIN: Pengelola sistem utama (User management, Verification, System Monitoring).
+- DOSEN (INSTRUCTOR): Pengampu materi akademik (Course Builder, Resource Provider, Expert Reviewer).
+- FASILITATOR: Pembimbing teknis/praktisi (Class monitoring, Feedback, Technical support).
+- GURU (MAHASISWA PPG): Peserta pendidikan (Learning, Portfolio submission, Content contributor).
+
+## 2. ANALISIS KEBUTUHAN PER DASHBOARD
+
+### A. Dashboard Admin
+- Manajemen Pengguna: Verifikasi Dosen/Fasilitator & Impor Massal Mahasiswa.
+- Kontrol Kualitas: Approval kursus & verifikasi penerbitan E-Sertifikat.
+- Statistik: Monitoring keaktifan sistem secara real-time.
+
+### B. Dashboard Dosen
+- Course Builder: Upload materi video, kuis, dan modul pelatihan.
+- Kurasi Karya: Menandai portofolio mahasiswa terbaik sebagai "Inspirasi".
+- Forum Ahli: Ruang diskusi akademik dengan mahasiswa.
+
+### C. Dashboard Fasilitator
+- Monitoring Progres: Pantauan grafik kemajuan belajar per mahasiswa/kelas.
+- Feedback Loop: Memberikan ulasan pada draf Bukti Karya mahasiswa.
+- Verifikasi Aktivitas: Memastikan penyelesaian modul sesuai deadline.
+
+### D. Dashboard Guru (Mahasiswa PPG) - "Pusat Belajar & Karya"
+- Learning Path: Jalur belajar terstruktur (Modul berjalan & sertifikat).
+- Unggah Bukti Karya (Portfolio): Laporan proyek, refleksi, dan tugas wajib.
+- Kontribusi Resource (Learning Resources): Mengunggah Modul Ajar (PDF) dan Video Pembelajaran untuk berbagi dengan sesama guru.
+- Integrasi AI: Bantuan Gemini untuk ide proyek atau rangkuman materi.
+
+## 3. PENYESUAIAN TEKNIS (SUPABASE)
+- RLS (Row Level Security): Menggantikan Firestore Rules untuk mengamankan data di tingkat database PostgreSQL.
+- Metadata Resource: Penambahan field 'author_role' (Dosen/Guru) dan 'is_verified'.
+- Storage Bucket: Menyiapkan folder 'resources' dan 'portfolios' di Supabase Storage.
+
+## 4. STRATEGI AUTENTIKASI (SUPABASE AUTH)
+- Hybrid Login: Google SSO untuk Guru/Dosen dan Email/Password untuk Admin.
+- Session Management: Menggunakan Supabase Auth Listener untuk menjaga status login pengguna secara real-time.
+
+## 4. VISUALISASI DATA (HALAMAN UTAMA)
+- Grafik Sebaran Peserta Per Provinsi: Menampilkan data geografis mahasiswa PPG seluruh Indonesia.
+- Grafik Peserta Per Mata Pelajaran (Mapel): Menampilkan distribusi mahasiswa berdasarkan spesialisasi (PAI, Bahasa Arab, Guru Kelas, dll).
+- Teknologi: Menggunakan library grafik modern (seperti Recharts) dengan animasi untuk tampilan premium.
+
+---
+Catatan: Analisis ini bersifat rencana awal untuk pengembangan fitur dashboard terintegrasi di portal PPG UIN Jakarta.
